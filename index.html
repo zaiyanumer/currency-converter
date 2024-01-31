@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Currency Converter</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="style.css">
+	<script src="app.js" defer></script>
+</head>
+
+<body>
+	<header>
+		<nav class="p-4 text-white text-xl font-bold bg-blue-700">Currency Converter</nav>
+	</header>
+	<div class="flex justify-center">
+		<div class="flex flex-col justify-center">
+			<section class="mx-5 mt-10 mb-2 p-5 rounded-lg border border-gray-300 inline-block">
+				<div class="inputs flex space-x-5">
+					<div>
+						<label for="amount"
+							class="cursor-pointer block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount</label>
+						<input type="number"
+							class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+							id="amount" placeholder="$1.00" />
+					</div>
+					<div>
+						<label for="base_currency"
+							class="cursor-pointer block mb-2 text-sm font-medium text-gray-900 dark:text-white">From</label>
+						<select id="base_currency"
+							class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+							<option value="USD">USD</option>
+							<option value="GBP">British Pound</option>
+							<option value="PKR">PKR</option>
+							<option value="INR">INR</option>
+							<option value="SAR">Saudi Riyal</option>
+						</select>
+					</div>
+					<div>
+						<div>
+							<label for="to_currency"
+								class="cursor-pointer block mb-2 text-sm font-medium text-gray-900 dark:text-white">To</label>
+							<select id="to_currency"
+								class="cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+								<option value="PKR">PKR</option>
+								<option value="USD">USD</option>
+								<option value="GBP">British Pound</option>
+								<option value="INR">INR</option>
+								<option value="SAR">Saudi Riyal</option>
+							</select>
+						</div>
+					</div>
+			</section>
+			<button type="button" id="submitBtn"
+				class="transition duration-250 ease-in-out w-40 m-auto block text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl active:scale-110 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+				style="margin: auto;">Convert</button>
+
+			<div class="hidden conversion_box text-center mx-8 my-6">
+				<span class="amount_to_convert text-xl font-semibold"></span>
+				<span class="base_currency mb-2 text-xl font-semibold"> USD</span> <span class="text-xl font-semibold">=</span> 
+				<span class="converted_amount text-2xl text-gray-500 font-bold"></span>
+				<span class="to_currency text-2xl text-gray-500 font-bold">PKR</span>
+			</div>
+		</div>
+	</div>
+	<div class="currency-table relative">
+		<div class="base_currency_name_table text-center font-bold text-xl"></div>
+		<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+			<thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+				<tr>
+					<th scope="col" class="px-6 py-3 rounded-s-lg">
+						Currency Code
+					</th>
+					<th scope="col" class="px-6 py-3">
+						Exchange Rate
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="loader"></div>
+</body>
+
+</html>
